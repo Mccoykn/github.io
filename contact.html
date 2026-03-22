@@ -132,23 +132,22 @@ margin-top:40px;
 <p><i>Questions about orders, products, or our mission? Send us a message.</i></p>
 
 
-<form>
+<form onsubmit="handleSubmit(event)">
 
-<input type="text" placeholder="Your Name">
-
+<input type="text" id="userInput" placeholder="Your Name" required>
 <br>
 
-<input type="email" placeholder="Your Email">
-
+<input type="email" placeholder="Your Email" required>
 <br>
 
-<textarea placeholder="Your Message"></textarea>
-
+<textarea placeholder="Your Message" required></textarea>
 <br>
 
-<button>Send Message</button>
+<button type="submit">Submit</button>
 
 </form>
+
+<p id="message"></p>
 
 </section>
 
@@ -223,7 +222,21 @@ margin-top:40px;
 </ol>
 
 </section>
+<script>
 
+function handleSubmit(event){
+
+event.preventDefault(); // stops page from refreshing
+
+let userInput = document.querySelector("#userInput");
+let message = document.querySelector("#message");
+
+message.innerHTML = "Thank you " + userInput.value + 
+" for reaching out to Pure Devotion! We will contact you soon.";
+
+}
+
+</script>
 
 <footer>
 
