@@ -164,68 +164,40 @@ img:hover {
     </div>
 
   </div>
-  <div class="container" style="margin-top: 40px;">
-
-  <h4 class="white-text center-align">Shop the Look</h4>
-
-  <table class="striped centered responsive-table white z-depth-3">
-    <thead>
-      <tr>
-        <th>Outfit</th>
+ <section id="basic" class="demo-section">
+      <h5>Outfit ideas</h5>
 
 
+      <div class="controls">
+        <button id="basicPrev" class="btn waves-effect">Prev</button>
+        <button id="basicNext" class="btn waves-effect">Next</button>
+        <button id="basicGo3" class="btn waves-effect">Go to #3</button>
+      </div>
 
 
-        <th>Style Name</th>
-      </tr>
-    </thead>
+      <div class="carousel" id="basicCarousel">
+        <a class="carousel-item" href="#one!">
+          <img src="images/IMG_0628.jpeg"  alt="Fit 1"/>
+        </a>
+        <a class="carousel-item" href="#two!">
+          <img alt="Nature 2" src="images/IMG_1087.HEIC" />
+        </a>
+        <a class="carousel-item" href="#three!">
+          <img alt="Nature 3" src="images/copy_BC505924-A6D5-40D0-B533-CC620A2B3678.jpeg" />
+        </a>
+        <a class="carousel-item" href="#four!">
+          <img alt="Nature 4" src="images/IMG_0104.jpeg"/>
+        </a>
+      </div>
 
-    <tbody>
 
-      <tr>
-        <td>
-          <img src="images/IMG_0628.jpeg" class="small-img" style="border-radius:10px;">
-        </td>
-        <td>Street Casual</td>
-        <td>
-          <a href="Shop.html" class="btn purple waves-effect waves-light">Shop</a>
-        </td>
-      </tr>
+      <p class="grey-text">
+        Tip: Try dragging/swiping the carousel.
+      </p>
+    </section>
 
-      <tr>
-        <td>
-          <img src="images/IMG_0278.jpeg" class="small-img" style="border-radius:10px;">
-        </td>
-        <td>Minimal Clean</td>
-        <td>
-          <a href="Shop.html" class="btn blue waves-effect waves-light">Shop</a>
-        </td>
-      </tr>
 
-      <tr>
-        <td>
-          <img src="images/copy_BC505924-A6D5-40D0-B533-CC620A2B3678.jpeg" class="small-img" style="border-radius:10px;">
-        </td>
-        <td>Layered Fit</td>
-        <td>
-          <a href="Shop.html" class="btn green waves-effect waves-light">Shop</a>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <img src="images/IMG_0104.jpeg" class="small-img" style="border-radius:10px;">
-        </td>
-        <td>Accessories Focus</td>
-        <td>
-          <a href="Shop.html" class="btn --orange  waves-effect waves-light">Shop</a>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
-
-</div>
+    <div class="divider"></div>
 
   <!-- CTA Section -->
   <div class="container center-align" style="margin-bottom: 40px;">
@@ -245,6 +217,26 @@ img:hover {
 
   <!-- Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // =========================
+      // 1) Basic carousel init
+      // =========================
+      const basicElem = document.querySelector('#basicCarousel');
+      const basicInstance = M.Carousel.init(basicElem, {
+        duration: 200,
+        dist: -100,
+        shift: 0,
+        padding: 0,
+        numVisible: 5,
+        indicators: false
+      });
 
+
+      document.querySelector('#basicPrev').addEventListener('click', () => basicInstance.prev());
+      document.querySelector('#basicNext').addEventListener('click', () => basicInstance.next());
+      document.querySelector('#basicGo3').addEventListener('click', () => basicInstance.set(2));
+    }) 
+      </script>
 </body>
 </html>
